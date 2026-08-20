@@ -1,0 +1,42 @@
+﻿@model IEnumerable<EF_Core_Database.Controllers.EmployeeWorkloadViewModel>
+
+@{
+    ViewData["Title"] = "Employee Workload";
+}
+
+<a asp-action="Index"
+   class="back-button">
+    ← Back to Reports
+</a>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="page-title mb-0">Employee Workload</h1>
+</div>
+
+<div class="table-container table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Department</th>
+                <th>Unresolved Tickets</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var e in Model)
+            {
+                <tr>
+                    <td>
+                        <strong>@e.EmployeeName</strong>
+                    </td>
+                    <td>
+                        @e.DepartmentName
+                    </td>
+                    <td>
+                        @e.UnresolvedTicketCount
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
