@@ -1,0 +1,41 @@
+﻿@model IEnumerable<EF_Core_Database.Models.Team>
+
+@{
+    ViewData["Title"] = "Teams";
+}
+
+<a asp-controller="Home"
+   asp-action="Index"
+   class="back-button">
+    ← Back to Home
+</a>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="page-title mb-0">Teams</h1>
+</div>
+
+<div class="table-container table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Department</th>
+                <th>Member Count</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model)
+            {
+                <tr>
+                    <td>@team.Name</td>
+                    <td>
+                        @(string.IsNullOrWhiteSpace(team.Description) ? "-" : team.Description)
+                    </td>
+                    <td>@(team.Department?.Name ?? "-")</td>
+                    <td>@team.TeamMembers.Count</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
