@@ -13,5 +13,9 @@ namespace EF_Core_Database.Data
         public DbSet<TeamMember> TeamMembers { get; set; }
         public DbSet<TicketPriority> TicketPriorities { get; set; }
         public DbSet<TicketStatus> TicketStatuses { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<TicketTag> TicketTags { get; set; }
     }
 }
