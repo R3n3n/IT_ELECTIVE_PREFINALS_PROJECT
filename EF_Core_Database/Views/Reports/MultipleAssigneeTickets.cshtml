@@ -1,0 +1,36 @@
+﻿@model IEnumerable<EF_Core_Database.Controllers.MultipleAssigneeViewModel>
+
+@{
+    ViewData["Title"] = "Multiple-Assignee Tickets";
+}
+
+<a asp-action="Index"
+   class="back-button">
+    ← Back to Reports
+</a>
+
+<h1 class="page-title">Multiple-Assignee Tickets</h1>
+
+<div class="table-container table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ticket</th>
+                <th>Subject</th>
+                <th># Active Assignees</th>
+                <th>Assignees</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var t in Model)
+            {
+                <tr>
+                    <td>@t.TicketId</td>
+                    <td>@t.Subject</td>
+                    <td>@t.ActiveAssigneesCount</td>
+                    <td>@string.Join(", ", t.Assignees)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
