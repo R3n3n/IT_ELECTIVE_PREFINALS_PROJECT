@@ -1,0 +1,96 @@
+﻿@model EF_Core_Database.Models.Ticket
+
+@{
+    ViewData["Title"] = $"Ticket #{Model.Id}";
+}
+
+<a asp-action="Index"
+   class="back-button">
+    ← Back to Tickets
+</a>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="page-title mb-0">Ticket #@Model.Id — @Model.Subject</h1>
+</div>
+
+<div class="table-container p-4 mb-4">
+    <dl class="row mb-0">
+        <dt class="col-sm-2">Customer</dt>
+        <dd class="col-sm-10">@Model.Customer.CompanyName (@Model.Customer.ContactName)</dd>
+
+        <dt class="col-sm-2">Category</dt>
+        <dd class="col-sm-10">@Model.Category.Name</dd>
+
+        <dt class="col-sm-2">Priority</dt>
+        <dd class="col-sm-10">@Model.Priority.Name</dd>
+
+        <dt class="col-sm-2">Status</dt>
+        <dd class="col-sm-10">@Model.Status.Name</dd>
+
+        <dt class="col-sm-2">Created</dt>
+        <dd class="col-sm-10">@Model.CreatedAt.ToString("g")</dd>
+
+        <dt class="col-sm-2">Due</dt>
+        <dd class="col-sm-10">@(Model.DueAt?.ToString("g") ?? "—")</dd>
+
+        <dt class="col-sm-2">Description</dt>
+        <dd class="col-sm-10">@Model.Description</dd>
+    </dl>
+</div>
+
+<h3 class="page-title">Assignments</h3>
+<div class="table-container table-responsive mb-4">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Employee</th>
+                <th>Assigned</th>
+                <th>Unassigned</th>
+                <th>Primary</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var a in Model.TicketAssignments)
+            {
+                <tr>
+                    <td>@a.Employee.FirstName @a.Employee.LastName</td>
+                    <td>@a.AssignedAt.ToString("g")</td>
+                    <td>@(a.UnassignedAt?.ToString("g") ?? "Active")</td>
+                    <td>@(a.IsPrimary ? "Yes" : "")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<h3 class="page-title">Comments</h3>
+<div class="table-container p-4 mb-4">
+    <ul class="list-group list-group-flush">
+        @foreach (var c in Model.TicketComments.OrderBy(c => c.CreatedAt))
+        {
+            <li class="list-group-item">
+                <strong>@(c.Employee != null ? $"{c.Employee.FirstName} {c.Employee.LastName}" : "Customer")</strong>
+                (@c.CreatedAt.ToString("g")) @(c.IsInternal ? "[internal]" : "")<br />
+                @c.Comment
+            </li>
+        }
+    </ul>
+</div>
+
+<h3 class="page-title">Tags</h3>
+<div class="table-container p-4 mb-4">
+    @foreach (var tt in Model.TicketTags)
+    {
+        <span class="badge bg-secondary">@tt.Tag.Name</span>
+    }
+</div>
+
+<h3 class="page-title">Attachments</h3>
+<div class="table-container p-4 mb-4">
+    <ul class="mb-0">
+        @foreach (var att in Model.TicketAttachments)
+        {
+            <li>@att.FileName (@att.ContentType, @att.FileSize bytes) — uploaded @att.UploadedAt.ToString("g")</li>
+        }
+    </ul>
+</div>
