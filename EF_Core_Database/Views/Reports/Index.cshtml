@@ -1,0 +1,43 @@
+﻿@{
+    ViewData["Title"] = "Reports";
+}
+
+<a asp-controller="Home"
+   asp-action="Index"
+   class="back-button">
+    ← Back to Home
+</a>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1 class="page-title mb-0">Reports</h1>
+</div>
+
+<a asp-action="EmployeeWorkload" class="report-card">
+    <strong>Employee Workload</strong>
+    <small>View ticket workload by employee.</small>
+</a>
+
+<a asp-action="DepartmentWorkload" class="report-card">
+    <strong>Department Workload</strong>
+    <small>View ticket workload by department.</small>
+</a>
+
+<a asp-action="UnassignedTickets" class="report-card">
+    <strong>Unassigned Tickets</strong>
+    <small>View tickets that currently have no assignee.</small>
+</a>
+
+<a asp-action="MultipleAssigneeTickets" class="report-card">
+    <strong>Multiple-Assignee Tickets</strong>
+    <small>View tickets assigned to multiple employees.</small>
+</a>
+
+<a asp-action="PrimaryAssignee" class="report-card">
+    <strong>Primary Assignee</strong>
+    <small>View the primary employee assigned to each ticket.</small>
+</a>
+
+<a asp-action="CategoryHierarchy" class="report-card">
+    <strong>Category Hierarchy</strong>
+    <small>View ticket categories and their hierarchy.</small>
+</a>
