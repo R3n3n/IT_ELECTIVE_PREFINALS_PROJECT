@@ -1,5 +1,6 @@
 ﻿using EF_Core_Database.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Net.Sockets;
 
 namespace EF_Core_Database.Data
 {
@@ -17,5 +18,10 @@ namespace EF_Core_Database.Data
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Tag> Tags { get; set; }
         public DbSet<TicketTag> TicketTags { get; set; }
+        public DbSet<Ticket> Tickets { get; set; }
+        public DbSet<TicketCategory> TicketCategories { get; set; }
+        public DbSet<TicketAssignment> TicketAssignments { get; set; }
+        public DbSet<TicketAttachment> TicketAttachments { get; set; }
+        public DbSet<TicketComment> TicketComments { get; set; }
     }
 }
