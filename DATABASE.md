@@ -1,6 +1,6 @@
 ## TABLES DISCOVERED
 
-**1. Departments**
+### **1. Departments**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -18,7 +18,7 @@
 
 
 
-**2. Employees**
+### **2. Employees**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -40,7 +40,7 @@
 
 
 
-**3. Tags**
+### **3. Tags**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -56,7 +56,7 @@
 
 
 
-**4. TicketTags**
+### **4. TicketTags**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -71,7 +71,7 @@
 
 
 
-**5. Customers**
+### **5. Customers**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -91,7 +91,7 @@
 
 
 
-**6. Teams**
+### **6. Teams**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -109,7 +109,7 @@
 
 
 
-**7. TeamMembers**
+### **7. TeamMembers**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -125,7 +125,7 @@
 
 
 
-**8. TicketPriorities**
+### **8. TicketPriorities**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -143,7 +143,7 @@
 
 
 
-**9. TicketStatus**
+### **9. TicketStatus**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -160,7 +160,7 @@
 
 
 
-**10. TicketAssignments**
+### **10. TicketAssignments**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -179,7 +179,7 @@
 
 
 
-**11. Tickets**
+### **11. Tickets**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -204,7 +204,7 @@
 
 
 
-**12. TicketAttachments**
+### **12. TicketAttachments**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -223,7 +223,7 @@
 
 
 
-**13. TicketCategories**
+### **13. TicketCategories**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -240,7 +240,7 @@
 
 
 
-**14. TicketComments**
+### **14. TicketComments**
 
 |**Name**|**Datatype**|
 |-|-|
@@ -258,9 +258,9 @@
 **Nullable Column:** EmployeeId  
 **Notes:** IsInternal has a default of *0*  
 
+---
 
-
-**RELATIONSHIPS**
+## RELATIONSHIPS
 
 
 
