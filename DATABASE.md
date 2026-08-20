@@ -258,3 +258,58 @@
 **Nullable Column:** EmployeeId  
 **Notes:** IsInternal has a default of *0*  
 
+
+
+**RELATIONSHIPS**
+
+
+
+**One-to-many**  
+
+* Departments -> Employees: One Department has many Employees  
+* Departments -> Teams: One Department has many Teams  
+* Customers -> Tickets: One Costumer can have many Tickets  
+* TicketCategories -> Tickets: One Category can consist of many Tickets  
+* TicketPriorities -> Tickets: One Priority can consist of many Tickets  
+* TicketStatuses -> Tickets: A Status can consist of many Tickets  
+* Tickets -> TicketComments: One Ticket can have many Comments  
+* Employees -> TicketComments: One Employee can have many Comments  
+* Tickets -> TicketAttachments: One Ticket can contain many Attachments  
+
+
+
+
+
+**Many-to-many**  
+
+* Tickets <-> Tags  
+* Tickets <-> Employees  
+* Teams <-> Employees  
+
+
+
+**Self-referencing**  
+
+* TicketCategories   
+
+
+
+
+
+**Optional relationships**  
+
+* TicketComments.EmployeeId - Nullable     
+* TicketCategories.ParentCategoryId - Nullable   
+
+
+
+
+
+**Composite primary keys**  
+
+* TicketTags (TicketId, TagId)  
+* TeamMembers (TeamId, EmployeeId)  
+* TicketAssignments (TicketId, EmployeeId)  
+
+
+
